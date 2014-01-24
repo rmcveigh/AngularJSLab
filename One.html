@@ -71,12 +71,14 @@
                         <div class="form-group">
                             <label class="control-label" for="firstname">Firstname:</label>
                             <input type="text" class="form-control" id="firstname" ng-model="firstname" placeholder="See what happens when you type in your name">
+                            <label class="control-label" for="lastname">Lastname:</label>
+                            <input type="text" class="form-control" id="lastname" ng-model="lastname" placeholder="See what happens when you type in your last name">
                         </div>
                     </form>
 
                 </div>
                 <div class="col-lg-4">
-                    <div class="well"><strong>Hello, {{firstname}}</strong></div>
+                    <div class="well"><strong>Hello, {{firstname}} {{lastname}}</strong></div>
                     <div class="panel panel-primary" ng-show="firstname">
                         <div class="panel-heading">
                             <h3 class="panel-title">Exercises</h3>
@@ -102,7 +104,7 @@
                             </ol>
                         </div>
                     </div>
-                    <div class="panel panel-info" ng-show="firstname">
+                    <div class="panel panel-info" ng-show="lastname">
                         <div class="panel-heading">
                             <h3 class="panel-title">More information</h3>
                         </div>

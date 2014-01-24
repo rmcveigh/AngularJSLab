@@ -70,11 +70,11 @@
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="movie in movies">
                 <span class="badge">{{movie.rating}}</span>
-                <h4 class="list-group-item-heading">{{movie.title}}</h4>
+                <h4 class="list-group-item-heading">{{movie.title | uppercase}}</h4>
                 <p class="list-group-item-text">Director: {{movie.director}}</p>
-                <p class="list-group-item-text">Budget: {{movie.budget}}</p>
-                <p class="list-group-item-text">Length:</p>
-                Stars:
+                <p class="list-group-item-text">Budget: {{movie.budget | currency:"USD$"}}</p>
+                <p class="list-group-item-text">Length: {{movie.length}}</p>
+                Stars: <ul class="list-group"><li class="list-group-item" ng-repeat="star in movie.stars"><p class="list-group-item-text">{{star.name}}</p></li></ul>
             </li>
         </ul>
     </div>

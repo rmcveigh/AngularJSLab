@@ -70,6 +70,7 @@
         <ul class="nav nav-tabs" style="margin-bottom: 15px;">
             <li><a href="#/" data-toggle="tab">Table view</a></li>
             <li><a href="#/list" data-toggle="tab">List view</a></li>
+            <li><a href="#/plaintext" data-toggle="tab">Plain text view</a></li>
         </ul>
         <div class="form-group">
             <label class="control-label" for="searchInput">Search by name:</label>
@@ -96,6 +97,14 @@
     </table>
 </script>
    <script type="text/ng-template" id="list.html">
+<div class="list-group">
+    <div class="list-group-item" ng-repeat="friend in friends | filter:query | orderBy:name">
+        <h4 class="list-group-item-heading">{{friend.name}}</h4>
+        <p class="list-group-item-text">{{friend.email }}</p>
+    </div>
+    </div>
+</script>
+<script type="text/ng-template" id="plaintext.html">
 <div class="list-group">
     <div class="list-group-item" ng-repeat="friend in friends | filter:query | orderBy:name">
         <h4 class="list-group-item-heading">{{friend.name}}</h4>

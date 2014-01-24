@@ -81,13 +81,17 @@
                     <div class="form-group">
                         <label for="inputLastname" class="col-lg-2 control-label">Lastname</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" id="inputLastname" ng-model="person.lastname" placeholder="Lastname">
+                            <input type="text" name="lastname" class="form-control" id="inputLastname" ng-model="person.lastname" placeholder="Lastname" required>
+                            <span ng-show="regForm.lastname.$error.required" class="help-block error">Lastname is required</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
                         <div class="col-lg-10">
-                            <input type="text" name="phone" class="form-control" id="inputPhone" ng-model="person.phone" placeholder="Phone number">
+                            <input type="text" name="phone" class="form-control" id="inputPhone" ng-model="person.phone" placeholder="Phone number" ng-minlength="5" ng-maxlength="12" required>
+                            <span ng-show="regForm.phone.$error.minlength" class="help-block error">to short</span>
+                            <span ng-show="regForm.phone.$error.maxlength" class="help-block error">to long</span>
+
                         </div>
                     </div>
                     <div class="form-group">
@@ -95,20 +99,21 @@
                         <div class="col-lg-10">
                             <input type="email" name="email" class="form-control" id="inputEmail" ng-model="person.email" placeholder="Email" required>
                             <span ng-show="regForm.email.$error.required" class="help-block error">Email is required</span>
-                            <span ng-show="regForm.email.$error.email" class="help-block error">Not a valid email address</span>
+                            <span ng-show="regForm.email.$error.text" class="help-block error">Not a valid email address</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputWebsite" class="col-lg-2 control-label">Website</label>
                         <div class="col-lg-10">
                             <input type="url" name="website" class="form-control" id="inputWebsite" ng-model="person.website" placeholder="Website">
+                            <span ng-show="regForm.website.$error.url" class="help-block error">Not a valid url</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
                             <button class="btn btn-default">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <p class="help-block">The form has been changed</p>
+                            <button type="submit" class="btn btn-primary"  ng-disabled="!regForm.$valid">Submit</button>
+                            <p class="help-block" ng-hide="regForm.$pristine">The form has been changed</p>
                         </div>
                     </div>
                 </fieldset>

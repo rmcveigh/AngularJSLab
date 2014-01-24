@@ -10,6 +10,10 @@ contactlistModule.config(function ($routeProvider) {
             controller: 'ContactListCtrl',
             templateUrl: 'list.html'
         })
+        .when('/plaintext', {
+            controller: 'ContactListCtrl',
+            templateUrl: 'plaintext.html'
+        })
         .otherwise({
             redirectTo: '/'
         });

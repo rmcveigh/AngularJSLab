@@ -74,14 +74,16 @@
                     <div class="form-group">
                         <label for="select" class="col-lg-3 control-label">Dog size</label>
                         <div class="col-lg-9">
-                            <select class="form-control" ng-model="dogsize" ng-options="dog.size for dog in dogs">
+                            <select class="form-control" id="dogname" ng-options="dog.size for dog in dogs" ng-model="dogname">
+                            </select>
+                            <select class="form-control" id="dogbreed" ng-options="dog.breed for dog in dogs" ng-model="dogbreed">
                             </select>
                         </div>
                     </div>
                 </fieldset>
             </form>
         </div>
-            <img />
+            <a ng-href="https://www.google.com/#q={{dogname.breed}}" targe="_blank"><img ng-src="{{dogname.image}}"/></a>
     </div>
     <div class="col-lg-4">
         <div class="panel panel-primary">
